@@ -1,4 +1,4 @@
-package curso_java_completo;
+package exemplos;
 
 import java.util.Locale;
 import java.util.Scanner;
