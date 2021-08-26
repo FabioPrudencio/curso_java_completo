@@ -1,13 +1,28 @@
 package exemplos;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import entities.Product;
 
 public class Exemplos {
+	
+	//wrapper classes int = Integer, double = Double
+	
+	//Sobrecarga
+	//Heranças
 
 	public void executarExemplo() {
 		
-		funcoesString();
+		listas();
+		
+		//vetorObjeto();
+		//vetorPrimitivo();
+		//funcoesString();
 		//operadorBitWise();
 		// expressaoCondicionalTernaria();
 		// exemploswitch();
@@ -19,6 +34,87 @@ public class Exemplos {
 		// exemploUnicode();
 	}
 	
+	private void listas() {
+		
+		List<String> list = new ArrayList<>();
+		
+		list.add("Maria");
+		list.add("Alex");
+		list.add("Anderson");
+		list.add("Jessie");
+		list.add("Bob");
+		list.add("Giulia");
+		list.add("Rafael");
+		list.add("Anna");
+		
+		list.add(2, "Marco"); //Adiciona na posição 2		
+		
+		System.out.println(list.size());
+		for (String str : list) {
+			System.out.println(str);
+		}
+		
+		list.remove("Anderson"); //Remover Anna
+		list.remove(6); // Remover na posição 1
+		list.removeIf(x -> x.charAt(0) == 'M');
+		
+		System.out.println("------------------------------");
+		for (String str : list) {
+			System.out.println(str);
+		}
+		System.out.println("------------------------------");
+		System.out.println("Index of Bob: " + list.indexOf("Bob"));
+		System.out.println("Index of Marco: " + list.indexOf("Marco"));
+		System.out.println("------------------------------");
+		List<String> result = list.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList());		
+		for (String str : result) {
+			System.out.println(str);
+		}
+		System.out.println("------------------------------");
+		String name = list.stream().filter(x -> x.charAt(0) == 'A').findFirst().orElse(null);
+		System.out.println(name);		
+	}
+	
+	private void vetorObjeto() {
+		Locale.setDefault(Locale.US);
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Product[] vect = new Product[n];
+		
+		double sum = 0;
+		for (int i=0; i < vect.length ;i++) {
+			sc.nextLine();
+			String name = sc.nextLine();
+			double price = sc.nextDouble();
+			
+			vect[i] = new Product(name, price);
+			sum += vect[i].getPrice();
+		}
+		
+		double avg = sum / vect.length;
+		
+		System.out.printf("AVERAGE PRICE = %.2f%n", avg);
+		
+		sc.close();		
+	}	
+	
+	private void vetorPrimitivo() {
+		Locale.setDefault(Locale.US);
+		
+		Scanner sc = new Scanner(System.in);		
+		int n = sc.nextInt();
+		double[] vect = new double[n];
+		double sum = 0;
+		for (int i=0;i<vect.length;i++) {
+			vect[i] = sc.nextDouble();
+			sum += vect[i];
+		}
+		
+		double avg = sum / vect.length;		
+		System.out.printf("AVERAGE HEIGHT: %.2f%n", avg);		
+		sc.close();
+	}	
 		
 	//Funcoes interessantes para Strings
 	private void funcoesString() {

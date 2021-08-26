@@ -47,4 +47,11 @@ public class EstruturasRepeticao {
 		}
 	}
 
+	private void estruturaForEach() {
+		String[] vect = new String[] { "Maria", "Bob", "Alex" };
+		for (String obj : vect) {
+			System.out.println(obj);
+		}
+	}
+
 }
