@@ -28,7 +28,7 @@ public class AppMatrizes {
 		for (int i = 0; i<mat.length;i++) {
 			for (int j = 0; j < mat[i].length; j++) {
 				if (mat[i][j] == X) {
-					System.out.println("Position: "+M+","+N);
+					System.out.println("Position: "+i+","+j);
 					if (j-1>-1)
 						System.out.println("Left: " + mat[i][j-1]);
 					if (j+1<mat[i].length)
