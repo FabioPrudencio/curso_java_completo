@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import entities.Employee;
 
-public class appRh {
+public class AppRh {
 
 	public static void main(String[] args) {
 		

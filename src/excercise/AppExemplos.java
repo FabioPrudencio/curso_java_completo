@@ -10,7 +10,7 @@ public class AppExemplos {
 		var repeticoes = new EstruturasRepeticao();		
 		
 		exemplos.executarExemplo();
-		repeticoes.executarExemplo();
+		//repeticoes.executarExemplo();
 
 	}
 
