@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -22,7 +23,8 @@ public class Exemplos {
 
 	public void executarExemplo() {
 		
-		formataDataSimpleDateFormat();
+		formatandoCalendar();
+		//formataDataSimpleDateFormat();
 		//listas();		
 		//vetorObjeto();
 		//vetorPrimitivo();
@@ -36,6 +38,25 @@ public class Exemplos {
 		// exemploFormatacao();
 		// exemploFormatacaoNumero();
 		// exemploUnicode();
+	}
+	
+	private void formatandoCalendar() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
+		
+		System.out.println(sdf.format(d));
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(d);
+		cal.add(Calendar.HOUR_OF_DAY, 4); //Adicionando 4 horas
+		int minutes = cal.get(Calendar.MINUTE);  //Pegando minutos ho horário
+		int month = 1 + cal.get(Calendar.MONTH); //Pegando o mes (é adicionado "um" porque o número de meses começa no zero)
+		d = cal.getTime();
+		
+		System.out.println(sdf.format(d));
+		System.out.println("Minutes: " + minutes);
+		System.out.println("Month: " + month);
 	}
 	
 	private void formataDataSimpleDateFormat () {
