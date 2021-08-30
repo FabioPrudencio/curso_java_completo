@@ -14,12 +14,15 @@ import java.util.stream.Collectors;
 
 import entities.Product;
 
+
 public class Exemplos {
 	
 	//wrapper classes int = Integer, double = Double	
 	//Sobrecarga mais de um construtor	
 	//Heranças
 	//polimorfismo
+	//composição de entidades    = para obter um objeto mais complexo - "tem um" e "tem vários"
+	//composição de serviços
 
 	public void executarExemplo() {
 		
