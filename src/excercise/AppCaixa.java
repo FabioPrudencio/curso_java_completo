@@ -18,8 +18,7 @@ public class AppCaixa {
 		
 		Locale.setDefault(Locale.US);
 		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter cliente data:");
@@ -28,13 +27,13 @@ public class AppCaixa {
 		System.out.print("Email: ");
 		String email = sc.nextLine();
 		System.out.print("Birth date (DD/MM/YYYY): ");
-		Date birthDate = sdf1.parse(sc.next());
+		Date birthDate = sdf .parse(sc.next());
 		Client client = new Client(clientName, email, birthDate);
 		
 		System.out.println("Enter order data:");
 		System.out.print("Status: ");
-		String status = sc.next();
-		Order order = new Order(client, OrderStatus.valueOf(status));
+		OrderStatus status = OrderStatus.valueOf(sc.next());
+		Order order = new Order(new Date(), client, status);
 		System.out.print("How many items to this order? ");
 		int n = sc.nextInt();
 		sc.nextLine();
@@ -49,20 +48,13 @@ public class AppCaixa {
 			sc.nextLine();
 			
 			Product product = new Product(productName, productPrice);
-			OrderItem orderItem = new OrderItem(orderQuantity, product.getPrice(), product);
+			OrderItem orderItem = new OrderItem(orderQuantity, productPrice, product);
 			order.addItem(orderItem);
 		}
 		
 		System.out.println();
 		System.out.println("ORDER SUMMARY:");
-		System.out.println("Order moment: " + sdf2.format(order.getMoment()));
-		System.out.println("Order status: " + order.getStatus());
-		System.out.println("Client: " + order.getClient().toString());
-		System.out.println("Order items:");
-		for (OrderItem orderItem : order.getItems()) {
-			System.out.println(orderItem.toString());
-		}
-		System.out.println(String.format("Total Price: $%.2f", order.total()));
+		System.out.println(order.toString());
 		
 		sc.close();
 	}

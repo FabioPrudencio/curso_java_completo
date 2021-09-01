@@ -17,17 +17,18 @@ import entities.Product;
 
 public class Exemplos {
 	
-	//wrapper classes int = Integer, double = Double	
+	//wrapper classes int = Integer, double = Double
+	//Encapsulamento - private, public...
 	//Sobrecarga mais de um construtor	
 	//Heranças
 	//polimorfismo
-	//composição de entidades    = para obter um objeto mais complexo - "tem um" e "tem vários"
+	//composição de entidades = para obter um objeto mais complexo - "tem um" e "tem vários" (pedido contém itens)
 	//composição de serviços
 
 	public void executarExemplo() {
 		
-		formatandoCalendar();
-		//formataDataSimpleDateFormat();
+		//formatandoCalendar();
+		formataDataSimpleDateFormat();
 		//listas();		
 		//vetorObjeto();
 		//vetorPrimitivo();
@@ -110,7 +111,7 @@ public class Exemplos {
 		System.out.println("x4: " + sdf3.format(x4));
 		System.out.println("y1: " + sdf3.format(y1));
 		System.out.println("y2: " + sdf3.format(y2));
-		System.out.println("y3: " + sdf3.format(y3));		
+		System.out.println("y3: " + sdf3.format(y3));
 	}
 	
 	private void listas() {

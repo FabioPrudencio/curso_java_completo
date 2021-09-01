@@ -3,12 +3,12 @@ package entities;
 public class Product {
 
 	private String name;
-	private double price;
+	private Double price;
 	
 	public Product() {
 	}
 	
-	public Product(String name, double price) {
+	public Product(String name, Double price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -25,7 +25,7 @@ public class Product {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 }
