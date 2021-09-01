@@ -1,9 +1,9 @@
 package entities;
 
 public class Account {
-	private int number;
+	private Integer number;
 	private String holder;
-	private double balance;
+	protected double balance;
 	
 	public Account() {
 	}
@@ -13,13 +13,13 @@ public class Account {
 		this.holder = holder;
 	}	
 	
-	public Account(int number, String holder, double initialDeposit) {
+	public Account(Integer number, String holder, double balance) {
 		this.number = number;
 		this.holder = holder;
-		deposit(initialDeposit);
+		deposit(balance);
 	}
 
-	public int getNumber() {
+	public Integer getNumber() {
 		return number;
 	}
 
@@ -40,7 +40,7 @@ public class Account {
 	}
 	
 	public void withdraw(double amount) {
-		this.balance -= (amount + 5.0);
+		this.balance -= amount;
 	}
 	
 	public String toString() {
