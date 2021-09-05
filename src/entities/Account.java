@@ -13,7 +13,7 @@ public class Account {
 		this.holder = holder;
 	}	
 	
-	public Account(Integer number, String holder, double balance) {
+	public Account(Integer number, String holder, Double balance) {
 		this.number = number;
 		this.holder = holder;
 		deposit(balance);
@@ -31,16 +31,16 @@ public class Account {
 		this.holder = holder;
 	}
 
-	public double getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 	
-	public void deposit(double amount) {
+	public void deposit(Double amount) { // final evita sobreposição desse método (Override)
 		this.balance += amount;
 	}
 	
 	public void withdraw(double amount) {
-		this.balance -= amount;
+		this.balance -= amount + 5.0;
 	}
 	
 	public String toString() {

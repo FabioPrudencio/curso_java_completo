@@ -5,6 +5,8 @@ public class Employee {
 	private Integer id;
 	private String name;
 	private Double salary;
+	private Integer hours;
+	private Double valuePerHour;
 	
 	public Employee(){		
 	}
@@ -13,6 +15,13 @@ public class Employee {
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
+	}
+
+	public Employee(String name, Integer hours, Double valuePerHour) {
+		super();
+		this.name = name;
+		this.hours = hours;
+		this.valuePerHour = valuePerHour;
 	}
 
 	public Integer getId() {
@@ -36,6 +45,26 @@ public class Employee {
 	}
 	
 
+	public Integer getHours() {
+		return hours;
+	}
+
+	public void setHours(Integer hours) {
+		this.hours = hours;
+	}
+
+	public Double getValuePerHour() {
+		return valuePerHour;
+	}
+
+	public void setValuePerHour(Double valuePerHour) {
+		this.valuePerHour = valuePerHour;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
 	public void increaseSalary(Double percentage) {
 		salary += salary * (percentage / 100);		
 	}
@@ -43,4 +72,8 @@ public class Employee {
 	public String toString() {
 		return id + ", " + name + String.format(", %.2f%n", salary);
 	}
+	
+	public Double payment() {
+		return getHours() * getValuePerHour();
+	}	
 }

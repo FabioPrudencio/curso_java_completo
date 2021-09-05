@@ -1,4 +1,4 @@
-package excercise;
+package exercises;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package excercise;
+package exercises;
 
 import exemplos.EstruturasRepeticao;
 import exemplos.Exemplos;
