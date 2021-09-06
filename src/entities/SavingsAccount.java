@@ -4,7 +4,7 @@ public final class SavingsAccount extends Account {
 	
 	private Double interestRate;
 
-	public SavingsAccount(Double interestRate) {
+	public SavingsAccount() {
 		super();
 	}
 
