@@ -88,6 +88,8 @@ public class Exemplos {
 		}
 		
 		//Instant.
+		String dateInstant = String.valueOf(x1.toInstant());
+		System.out.println(dateInstant);
 		System.out.println("x1 to Instant: " + x1.toInstant());
 		System.out.println("x1: " + x1);
 		System.out.println("x2: " + x2);
