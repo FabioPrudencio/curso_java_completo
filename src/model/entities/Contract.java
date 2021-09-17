@@ -49,8 +49,4 @@ public class Contract {
 		return installments;
 	}
 
-	public void addInstallments(Installment installment) {
-		this.installments.add(installment);
-	}
-
 }

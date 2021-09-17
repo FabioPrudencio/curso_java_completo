@@ -9,14 +9,13 @@ import java.util.Scanner;
 import model.entities.Contract;
 import model.entities.Installment;
 import model.services.ContractService;
+import model.services.OnlinePaymentService;
 import model.services.PaypalService;
 
 public class AppContractInterfaces {
 
 	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-		PaypalService paymentService = new PaypalService();
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
@@ -34,15 +33,16 @@ public class AppContractInterfaces {
 		Contract contract = new Contract(number, date, value);
 		//Contract contract = new Contract(8028, sdf.parse("25/06/2018"), 600.0);
 
-		ContractService contractService = new ContractService();
-		contractService.processContract(contract, months, paymentService);
+		ContractService contractService = new ContractService(new PaypalService());
+		contractService.processContract(contract, months);
 
 		System.out.println();
 		System.out.println("Installments:");
 		for (Installment i : contract.getInstallments()) {
 			System.out.println(sdf.format(i.getDueDate()) + " - " + String.format("%.2f", i.getAmount()));
 		}
-
+		
+		sc.close();
 	}
 
 }

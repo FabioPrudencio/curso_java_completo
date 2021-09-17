@@ -27,8 +27,8 @@ public class Exemplos {
 
 	public void executarExemplo() {
 		
-		//formatandoCalendar();
-		formataDataSimpleDateFormat();
+		formatandoCalendar();
+		//formataDataSimpleDateFormat();
 		//listas();		
 		//vetorObjeto();
 		//vetorPrimitivo();
@@ -50,6 +50,12 @@ public class Exemplos {
 		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
 		
 		System.out.println(sdf.format(d));
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.MONTH, -11); //Adicionando 3 meses
+		
+		System.out.println(calendar.toInstant());
 		
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(d);

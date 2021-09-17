@@ -10,31 +10,30 @@ import model.entities.Installment;
 
 public class ContractService {
 	
+	private OnlinePaymentService onlinePaymentService;
+	
 	public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public void processContract(Contract contract, Integer months, OnlinePaymentService paymentService) throws ParseException {		
-		Calendar cal = Calendar.getInstance();
-		
-		cal.setTime(contract.getDate());
-		int day = cal.get(Calendar.DAY_OF_MONTH);
-		int month = cal.get(Calendar.MONTH) + 1;
-		int year = cal.get(Calendar.YEAR);		
+	public ContractService(OnlinePaymentService onlinePaymentService) {
+		this.onlinePaymentService = onlinePaymentService;
+	}
+	
+	public void processContract(Contract contract, Integer months) throws ParseException {		
 		
 		for (int i = 1; i <= months; i++) {
 			Installment installment = new Installment();
-			installment.setAmount(paymentService.interest(contract.getTotalValue() / months, i));
+			installment.setAmount(onlinePaymentService.interest(contract.getTotalValue() / months, i));			
+			installment.setDueDate(addMonths(contract.getDate(), i));
 			
-			if ((month + i) > 12) {
-				year += 1; 
-			}
-			
-			String strDate = String.format("%d/%d/%d", day, month + i, year);
-			Date date = sdf.parse(strDate);
-			installment.setDueDate(date);
-			
-			contract.addInstallments(installment);
-		}
-		
+			contract.getInstallments().add(installment);
+		}		
+	}
+	
+	private Date addMonths(Date date, int months) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.MONTH, months);
+		return calendar.getTime();
 	}
 
 }
