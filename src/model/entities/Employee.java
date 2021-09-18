@@ -1,6 +1,6 @@
-package entities;
+package model.entities;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
 	private Integer id;
 	private String name;
@@ -15,19 +15,6 @@ public class Employee {
 		this.name = name;
 		this.salary = salary;
 	}
-	
-	public Employee(Integer id, String name, Double salary) {
-		this.id = id;
-		this.name = name;
-		this.salary = salary;
-	}
-
-	public Employee(String name, Integer hours, Double valuePerHour) {
-		super();
-		this.name = name;
-		this.hours = hours;
-		this.valuePerHour = valuePerHour;
-	}	
 
 	public Integer getId() {
 		return id;
@@ -79,5 +66,10 @@ public class Employee {
 
 	public Double payment() {
 		return getHours() * getValuePerHour();
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		return -name.compareTo(o.getName());
 	}
 }
