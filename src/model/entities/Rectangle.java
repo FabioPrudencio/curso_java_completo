@@ -10,6 +10,11 @@ public class Rectangle extends AbstractShape {
 	public Rectangle() {
 		super();
 	}
+	
+	public Rectangle(Double width, Double height) {
+		this.width = width;
+		this.height = height;
+	}	
 
 	public Rectangle(Color color, Double width, Double height) {
 		super(color);
