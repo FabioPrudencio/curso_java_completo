@@ -18,8 +18,7 @@ public class AppUserSet {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter a full file path: ");
-		//String path = sc.nextLine();
-		String path = "c:\\temp\\log.txt";
+		String path = sc.nextLine();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
