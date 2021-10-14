@@ -1,8 +1,9 @@
-package exercises;
+package exercises.predicates;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import exercises.MyComparator;
 import model.entities.Product;
 
 public class AppComparator1Products {

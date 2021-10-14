@@ -57,10 +57,26 @@ public class Product {
 			return false;
 		return true;
 	}
+	
+	public static boolean staticProductPredicate(Product p) {
+		return p.getPrice() >= 100.0;
+	}
+	
+	public boolean nonStaticProductPredicate() {
+		return price >= 100.0;
+	}	
+	
+	public static void staticPriceUpdate(Product p) {
+		p.setPrice(p.getPrice() * 1.1);
+	}
+	
+	public void nonStaticPriceUpdate() {
+		price *= 1.1;
+	}
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + price + "]";
+		return name + ", " + String.format("%.2f", price);
 	}
 
 }

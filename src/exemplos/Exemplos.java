@@ -49,6 +49,13 @@ public class Exemplos {
 		
 		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
 		
+		//Date orderDateAux = Date.from(Instant.parse("2021-07-19T14:56:37.227"));
+		//Date orderDateAux =   Date.from(Instant.parse("2021-07-19T14:56:37Z"));
+		
+		System.out.println("d: " + d);
+		
+		//System.out.println("orderDateAux: " + orderDateAux);
+		
 		System.out.println(sdf.format(d));
 		
 		Calendar calendar = Calendar.getInstance();

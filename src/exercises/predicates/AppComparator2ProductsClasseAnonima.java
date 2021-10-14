@@ -1,4 +1,4 @@
-package exercises;
+package exercises.predicates;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import model.entities.Product;
 
-public class AppComparator3ProductsLambda {
+public class AppComparator2ProductsClasseAnonima {
 
 	public static void main(String[] args) {
 
@@ -16,7 +16,14 @@ public class AppComparator3ProductsLambda {
 		list.add(new Product("Notebook", 1200.00));
 		list.add(new Product("Tablet", 450.00));
 
-		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+		Comparator<Product> comp = new Comparator<Product>() {
+			@Override
+			public int compare(Product p1, Product p2) {
+				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+			}
+		};
+
+		list.sort(comp);
 
 		for (Product p : list) {
 			System.out.println(p);
