@@ -73,6 +73,14 @@ public class Product {
 	public void nonStaticPriceUpdate() {
 		price *= 1.1;
 	}
+	
+	public static String staticUpperCaseName(Product p) {
+		return p.getName().toUpperCase();		
+	}
+	
+	public String nonStaticUpperCase() {
+		return name.toUpperCase();
+	}
 
 	@Override
 	public String toString() {
