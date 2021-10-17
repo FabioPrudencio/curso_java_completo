@@ -7,12 +7,19 @@ public class Employee implements Comparable<Employee> {
 	private Double salary;
 	private Integer hours;
 	private Double valuePerHour;
+	private String email;
 
 	public Employee() {
 	}
 
 	public Employee(String name, Double salary) {
 		this.name = name;
+		this.salary = salary;
+	}
+
+	public Employee(String name, String email, Double salary) {
+		this.name = name;
+		this.email = email;
 		this.salary = salary;
 	}
 
@@ -46,6 +53,14 @@ public class Employee implements Comparable<Employee> {
 
 	public Double getValuePerHour() {
 		return valuePerHour;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setValuePerHour(Double valuePerHour) {
